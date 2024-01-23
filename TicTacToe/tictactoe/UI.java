@@ -43,6 +43,9 @@ public class UI
     public int getMoveRow(int whoseMove, String xName, String oName) {
         int row = 0;
         while (row <= 0 || row >= 4) {
+            if (row < 0 || row > 3) {
+                System.out.println(Constants.INVALID_ROW_OR_COLUMN);
+            }
             try {
                 System.out.printf(Constants.GET_ROW_MOVE, getXOrO(whoseMove), getPlayerName(whoseMove, xName, oName));
                 row = scanner.nextInt();
@@ -56,6 +59,9 @@ public class UI
     public int getMoveCol(int whoseMove, String xName, String oName) {
         int col = 0;
         while (col <= 0 || col >= 4) {
+            if (col < 0 || col > 3) {
+                System.out.println(Constants.INVALID_ROW_OR_COLUMN);
+            }
             try {
                 System.out.printf(Constants.GET_COL_MOVE, getXOrO(whoseMove), getPlayerName(whoseMove, xName, oName));
                 col = scanner.nextInt();
@@ -69,7 +75,7 @@ public class UI
     public boolean startNewGame() {
         System.out.println(Constants.START_NEW_GAME);
         String yesOrNo = scanner.next();
-        return yesOrNo == "T";
+        return yesOrNo.equals("Y") || yesOrNo.equals("y");
     }
 
     // Printing text methods
@@ -86,8 +92,8 @@ public class UI
         }
     }
 
-    public void printInvalidRowOrColumn(int rowOrCol) {
-        System.out.printf(Constants.INVALID_ROW_OR_COLUMN, rowOrCol);
+    public void printInvalidRowOrColumn() {
+        System.out.printf(Constants.INVALID_ROW_OR_COLUMN);
     }
 
     public void printInvalidMove(int row, int col) {
