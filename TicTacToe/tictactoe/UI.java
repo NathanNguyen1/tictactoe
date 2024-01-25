@@ -45,13 +45,13 @@ public class UI
         while (row <= 0 || row >= 4) {
             if (row < 0 || row > 3) {
                 System.out.println(Constants.INVALID_ROW_OR_COLUMN);
-            }
+            } 
             try {
                 System.out.printf(Constants.GET_ROW_MOVE, getXOrO(whoseMove), getPlayerName(whoseMove, xName, oName));
                 row = scanner.nextInt();
             } catch (Exception e) {
                 System.out.println(Constants.INVALID_ROW_OR_COLUMN);
-            }
+            } 
         }
         return row;
     }
