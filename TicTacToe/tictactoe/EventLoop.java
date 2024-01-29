@@ -6,6 +6,7 @@ public class EventLoop {
     State state = new State();
     UI ui = new UI();
     int row, col;
+    State newstate = new State();
 
     public static void main(String[] args) {
         EventLoop eventLoop = new EventLoop();
@@ -88,5 +89,6 @@ public class EventLoop {
                 }
             }
         }
+        
     }
 }
