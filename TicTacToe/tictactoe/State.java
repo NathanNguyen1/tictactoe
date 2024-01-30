@@ -22,9 +22,13 @@ public class State
             if (total == -3 || total == 3) return true;
         }
         total = getBoardCell(0, 0) + getBoardCell(1,1) + getBoardCell(2, 2);
-        if (total == -3 || total == 3) return true;
+        if (total == -3 || total == 3) {
+            return true;
+        }
         total = getBoardCell(2, 0) + getBoardCell(1,1) + getBoardCell(0, 2);
-        if (total == -3 || total == 3) return true;
+        if (total == -3 || total == 3) {
+            return true;
+        }
         return false;
     }
 
@@ -77,6 +81,11 @@ public class State
 
     public void setBoardCell(int row, int col, int value) {
         this.board[row][col] = value;
+    }
+    
+    public void reset() {
+        gameState = Constants.STANDBY;
+        board = new int[Constants.BOARD_SIZE][Constants.BOARD_SIZE];
     }
 
 }

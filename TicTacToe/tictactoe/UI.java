@@ -8,6 +8,7 @@ public class UI
 {
 
     Scanner scanner;
+    State state = new State();
 
     public UI() {
         scanner = new Scanner(System.in);         
@@ -52,6 +53,7 @@ public class UI
             } catch (Exception e) {
                 System.out.println(Constants.INVALID_ROW_OR_COLUMN);
                 scanner.next();
+                continue;
             } 
         }
         return row;
@@ -69,6 +71,7 @@ public class UI
             } catch (Exception e) {
                 System.out.println(Constants.INVALID_ROW_OR_COLUMN);
                 scanner.next();
+                continue;
             }
         }
         return col;
@@ -77,7 +80,12 @@ public class UI
     public boolean startNewGame() {
         System.out.println(Constants.START_NEW_GAME);
         String yesOrNo = scanner.next();
-        return yesOrNo.equals("Y") || yesOrNo.equals("y");
+        if (yesOrNo.equals("Y") || yesOrNo.equals("y")) {
+            state.reset();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // Printing text methods

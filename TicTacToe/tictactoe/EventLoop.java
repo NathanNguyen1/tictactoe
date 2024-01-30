@@ -6,7 +6,6 @@ public class EventLoop {
     State state = new State();
     UI ui = new UI();
     int row, col;
-    State newstate = new State();
 
     public static void main(String[] args) {
         EventLoop eventLoop = new EventLoop();
@@ -82,8 +81,7 @@ public class EventLoop {
 
             } else if (gameState == Constants.GAME_OVER) {
                 if (ui.startNewGame()) {
-                    
-                    state.setGameState(Constants.STANDBY);
+                    state.reset();
                 } else {
                     state.setGameState(Constants.QUIT_PROGRAM);
                 }
